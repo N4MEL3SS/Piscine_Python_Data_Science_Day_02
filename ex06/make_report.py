@@ -5,9 +5,18 @@ from analytics import Research
 from config import *
 
 
+def send_in_telegramm(text):
+    token = BOT_TOKEN
+    chat_id = BOT_CHAT
+    url_req = "https://api.telegram.org/bot" + token + "/sendMessage" + "?chat_id=" + chat_id + \
+              "&text=" + text
+    results = requests.get(url_req)
+    if results.status_code != 200:
+        raise Exception(f'Error server {results.status_code}')
+
+
 if __name__ == '__main__':
-    logging.basicConfig(filename=f'{LOG_NAME}.{LOG_EXE}', filemode='w', level=logging.DEBUG,
-                        format='%(asctime)s %(message)s', datefmt='%y-%d-%m %H:%M:%S')
+    logging.basicConfig(filename=f'{LOG_NAME}.{LOG_EXE}', filemode='w', level=logging.DEBUG, format='%(asctime)s %(message)s')
 
     re_obj = Research(FILEPATH)
     data_file = re_obj.file_reader()
@@ -28,6 +37,7 @@ if __name__ == '__main__':
     )
 
     anal_obj.save_file(text, REPORT_NAME, REPORT_EXE)
+    send_in_telegramm(text)
 
 else:
     print("Usage: ./first_constructor.py file_path")

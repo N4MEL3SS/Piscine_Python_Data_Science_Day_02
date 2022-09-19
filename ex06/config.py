@@ -12,3 +12,6 @@ Our forecast is that in the next {} observations we will have: {} tails and {} h
 
 LOG_NAME = 'analytics'
 LOG_EXE = '.log'
+
+BOT_TOKEN = '5487393048:AAFTUbgBmDEgNIreiHkRQLF1IpUQJpLt6Po'
+BOT_CHAT = '398039301'

@@ -29,11 +29,11 @@ class Research:
             lines[i] = lines[i].split(",")
             lines[i][0], lines[i][1] = int(lines[i][0]), int(lines[i][1])
 
+        logging.debug("Returns heads and tails from file")
+
         return lines[int(has_header):]
 
-    def file_reader(self):
-        has_header = True
-
+    def file_reader(self, has_header=True):
         if not os.access(self.path, os.R_OK):
             raise Exception("File cannot be read! Check the access rights.")
 
@@ -42,6 +42,7 @@ class Research:
 
     class Calculations:
         def __init__(self, data):
+            logging.info("Class Calculations init.")
             self.data = data
 
         def counts(self):
@@ -52,11 +53,15 @@ class Research:
                 heads += pair[0]
                 tails += pair[1]
 
+            logging.debug("Counts heads and tails")
+
             return heads, tails
 
         def fractions(self, heads, tails):
             first = heads / (heads + tails) * 100
             second = tails / (heads + tails) * 100
+
+            logging.debug("Fractions heads and tails")
 
             return first, second
 
@@ -68,14 +73,20 @@ class Research:
                 ran_num = randint(0, 1)
                 res.append([ran_num, 1 - ran_num])
 
+            logging.debug("Predict random generated")
+
             return res
 
         def predict_last(self):
             if not self.data:
                 raise Exception("Data is empty!")
 
+            logging.debug("Predict last send")
+
             return self.data[-1]
 
         def save_file(self, data, name, extension):
             with open(name + extension, 'w') as file:
                 file.write(data)
+
+            logging.debug("Report file created")
