@@ -4,7 +4,7 @@ from config import *
 
 if __name__ == '__main__':
     re_obj = Research(FILEPATH)
-    data_file = re_obj.file_reader()
+    data_file = re_obj.file_reader(HAS_HEADER)
     calc_obj = re_obj.Calculations(data_file)
     anal_obj = re_obj.Analytics(data_file)
     head, tail = calc_obj.counts()
@@ -22,6 +22,7 @@ if __name__ == '__main__':
     )
 
     anal_obj.save_file(text, REPORT_NAME, REPORT_EXE)
+    print("Report created.")
 
 else:
     print("Usage: ./first_constructor.py file_path")

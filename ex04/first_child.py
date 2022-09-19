@@ -12,9 +12,7 @@ class Research:
 
         if len(lines) == 0:
             raise Exception("Empty file!")
-        if lines[0] == "0,1" or lines[0] == "1,0":
-            has_header = False
-        elif len(lines[0].split(',')) != 2:
+        if has_header and len(lines[0].split(',')) != 2:
             raise Exception("Incorrect header struct!")
 
         if len(lines) < 1 + int(has_header):
@@ -28,11 +26,10 @@ class Research:
 
         return lines[int(has_header):]
 
-    def file_reader(self):
-        has_header = True
+    def file_reader(self, has_header=True):
 
         try:
-            with open('data.csv', 'r') as input_file:
+            with open(self.path, 'r') as input_file:
                 return self.file_check(input_file, has_header)
         except FileNotFoundError as err:
             print(err)

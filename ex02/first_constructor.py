@@ -25,7 +25,7 @@ class Research:
         if not os.access(self.path, os.R_OK):
             raise Exception("File cannot be read! Check the access rights.")
 
-        with open('data.csv', 'r') as input_file:
+        with open(self.path, 'r') as input_file:
             return self.file_check(input_file)
 
 

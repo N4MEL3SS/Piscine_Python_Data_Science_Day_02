@@ -1,4 +1,5 @@
 FILEPATH = 'data.csv'
+HAS_HEADER = True
 NUM_OF_STEPS = 3
 REPORT_NAME = 'report'
 REPORT_EXE = '.txt'
