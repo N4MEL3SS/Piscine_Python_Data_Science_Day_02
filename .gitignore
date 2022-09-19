@@ -5,6 +5,7 @@
 # *.csv
 *.csv
 *.txt
+*.log
 
 # User-specific stuff
 .idea/**/workspace.xml
