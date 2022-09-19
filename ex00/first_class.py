@@ -3,7 +3,7 @@
 
 class Must_read:
     try:
-        with open('data.csv', "r") as input_file:
+        with open('data.csv', 'r') as input_file:
             print(input_file.read())
     except FileNotFoundError as err:
         print(err)
