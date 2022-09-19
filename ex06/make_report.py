@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import logging
 from analytics import Research
 from config import *
@@ -26,6 +27,8 @@ if __name__ == '__main__':
 
     anal_obj.save_file(text, REPORT_NAME, REPORT_EXE)
     re_obj.send_in_telegramm("Report created success.")
+
+    print("Report created.")
 
 else:
     print("Usage: ./first_constructor.py file_path")

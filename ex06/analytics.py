@@ -19,6 +19,7 @@ class Research:
         if results.status_code != 200:
             logging.debug(f'Error server {results.status_code}')
             raise Exception(f'Error server {results.status_code}')
+        print("Message send.")
 
     def file_check(self, input_file, has_header):
         lines = [line.rstrip("\n") for line in input_file]

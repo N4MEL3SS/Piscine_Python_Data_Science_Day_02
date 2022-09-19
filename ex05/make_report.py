@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from analytics import Research
 from config import *
 
